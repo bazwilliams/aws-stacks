@@ -27,16 +27,6 @@ Resources:
       ResourceRecords:
       - "\"VscS08I14VZjBKdv3VnRhEwiQxsIKrKPYTfNDKQK+H4=\""
 
-  caaAwsRecordSet:
-    Type: "AWS::Route53::RecordSet"
-    Properties:
-      Name: bjw.me.uk.
-      HostedZoneId: !Ref hostedZone
-      Type: CAA
-      TTL: 900
-      ResourceRecords:
-      - "0 issue \"amazon.com\""
-
   caaLetsEncryptRecordSet:
     Type: "AWS::Route53::RecordSet"
     Properties:
@@ -46,6 +36,7 @@ Resources:
       TTL: 900
       ResourceRecords:
       - "0 issue \"letsencrypt.org\""
+      - "0 issue \"amazon.com\""
 
   blogRecordSet:
     Type: "AWS::Route53::RecordSet"
