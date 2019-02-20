@@ -27,6 +27,26 @@ Resources:
       ResourceRecords:
       - "\"VscS08I14VZjBKdv3VnRhEwiQxsIKrKPYTfNDKQK+H4=\""
 
+  caaAwsRecordSet:
+    Type: "AWS::Route53::RecordSet"
+    Properties:
+      Name: bjw.me.uk.
+      HostedZoneId: !Ref hostedZone
+      Type: CAA
+      TTL: 900
+      ResourceRecords:
+      - "0 issue \"amazon.com\""
+
+  caaLetsEncryptRecordSet:
+    Type: "AWS::Route53::RecordSet"
+    Properties:
+      Name: bjw.me.uk.
+      HostedZoneId: !Ref hostedZone
+      Type: CAA
+      TTL: 900
+      ResourceRecords:
+      - "0 issue \"letsencrypt.org\""
+
   blogRecordSet:
     Type: "AWS::Route53::RecordSet"
     Properties:
@@ -86,3 +106,13 @@ Resources:
       TTL: 900
       ResourceRecords:
       - "uf7bin6uhtdomgpikrxcy4bqkbb5ru4i.dkim.amazonses.com."
+
+  homeRecordSet:
+    Type: "AWS::Route53::RecordSet"
+    Properties:
+      Name: home.bjw.me.uk.
+      HostedZoneId: !Ref hostedZone
+      Type: CNAME
+      TTL: 900
+      ResourceRecords:
+      - "bazwilliams.duia.eu."
