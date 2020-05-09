@@ -1,0 +1,16 @@
+Description: "Home Media"
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  MusicBucket:
+    Type: "AWS::S3::Bucket"
+  FamilyVideoBucket:
+    Type: "AWS::S3::Bucket"
+
+Outputs:
+  MusicBucketName:
+    Value: !Ref MusicBucket
+    Description: Name of the S3 bucket for holding music files
+  FamilyVideoBucketName:
+    Value: !Ref FamilyVideoBucket
+    Description: Name of the S3 bucket for holding family video files

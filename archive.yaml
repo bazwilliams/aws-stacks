@@ -1,0 +1,11 @@
+Description: "Home Archive"
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  ArchiveBucket:
+    Type: "AWS::S3::Bucket"
+
+Outputs:
+  ArchiveBucketName:
+    Value: !Ref ArchiveBucket
+    Description: Name of the S3 bucket for holding archive files
