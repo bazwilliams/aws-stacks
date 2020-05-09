@@ -1,0 +1,35 @@
+Description: "Photographs from Octocam"
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  CameraBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      LifecycleConfiguration:
+        Rules:
+          - Id: IntelligentTierRule
+            Status: Enabled
+            Transitions:
+            - TransitionInDays: 1
+              StorageClass: INTELLIGENT_TIERING
+
+  User:
+    Type: "AWS::IAM::User"
+    Properties:
+      Policies:
+      - PolicyName: UploadOctocamCameraFootage
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            Action:
+              - s3:PutObject
+              - s3:ListBucket
+            Resource:
+              - !Sub arn:aws:s3:::${CameraBucket}
+              - !Sub arn:aws:s3:::${CameraBucket}/*
+
+Outputs:
+  CameraBucketName:
+    Value: !Ref CameraBucket
+    Description: Name of the S3 bucket for holding uploaded camera footage

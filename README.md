@@ -6,4 +6,5 @@ aws cloudformation deploy --template-file=jwilliams.uk.yaml --stack-name=jwillia
 aws cloudformation deploy --template-file=ldvcamper.com.yaml --stack-name=ldvcampervan-website
 aws cloudformation deploy --template-file=media.yaml --stack-name=home-media
 aws cloudformation deploy --template-file=archive.yaml --stack-name=home-archive
+aws cloudformation deploy --template-file=octocam.yaml --stack-name=octocam-footage
 ```
