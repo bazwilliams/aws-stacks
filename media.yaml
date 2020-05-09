@@ -4,8 +4,24 @@ AWSTemplateFormatVersion: "2010-09-09"
 Resources:
   MusicBucket:
     Type: "AWS::S3::Bucket"
+    Properties:
+      LifecycleConfiguration:
+        Rules:
+          - Id: IntelligentTierRule
+            Status: Enabled
+            Transitions:
+            - TransitionInDays: 1
+              StorageClass: INTELLIGENT_TIERING
   FamilyVideoBucket:
     Type: "AWS::S3::Bucket"
+    Properties:
+      LifecycleConfiguration:
+        Rules:
+          - Id: IntelligentTierRule
+            Status: Enabled
+            Transitions:
+            - TransitionInDays: 1
+              StorageClass: INTELLIGENT_TIERING
 
 Outputs:
   MusicBucketName:

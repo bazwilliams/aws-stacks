@@ -4,6 +4,14 @@ AWSTemplateFormatVersion: "2010-09-09"
 Resources:
   ArchiveBucket:
     Type: "AWS::S3::Bucket"
+    Properties:
+      LifecycleConfiguration:
+        Rules:
+          - Id: IntelligentTierRule
+            Status: Enabled
+            Transitions:
+            - TransitionInDays: 1
+              StorageClass: INTELLIGENT_TIERING
 
 Outputs:
   ArchiveBucketName:
