@@ -8,16 +8,6 @@ Parameters:
 
 Resources:
 
-  txt0RecordSet:
-    Type: "AWS::Route53::RecordSet"
-    Properties:
-      Name: _amazonses.jwilliams.uk.
-      HostedZoneId: !Ref hostedZone
-      Type: TXT
-      TTL: 900
-      ResourceRecords:
-      - "\"r0Qz5HxiH+0jJ+UJsJz+i1oZ9Gx41FMt6DyYS7Z8XGA=\""
-
   mxRecordSet:
     Type: "AWS::Route53::RecordSet"
     Properties:
@@ -28,7 +18,6 @@ Resources:
       ResourceRecords:
       - "10 mx01.mail.icloud.com."
       - "20 mx02.mail.icloud.com."
-      - "100 inbound-smtp.eu-west-1.amazonaws.com."
 
   caaRecordSet:
     Type: "AWS::Route53::RecordSet"
@@ -41,46 +30,6 @@ Resources:
       - "0 issue \"letsencrypt.org\""
       - "0 issue \"amazon.com\""
 
-  cname0RecordSet:
-    Type: "AWS::Route53::RecordSet"
-    Properties:
-      Name: autodiscover.jwilliams.uk.
-      HostedZoneId: !Ref hostedZone
-      Type: CNAME
-      TTL: 900
-      ResourceRecords:
-      - "autodiscover.mail.eu-west-1.awsapps.com."
-
-  cname1RecordSet:
-    Type: "AWS::Route53::RecordSet"
-    Properties:
-      Name: w436k2ck5gsrxba37p3i3mr3qzpw5epa._domainkey.jwilliams.uk.
-      HostedZoneId: !Ref hostedZone
-      Type: CNAME
-      TTL: 900
-      ResourceRecords:
-      - "w436k2ck5gsrxba37p3i3mr3qzpw5epa.dkim.amazonses.com."
-
-  cname2RecordSet:
-    Type: "AWS::Route53::RecordSet"
-    Properties:
-      Name: ks3ohfndlrwqlp4m4iekcxck7detcp5g._domainkey.jwilliams.uk.
-      HostedZoneId: !Ref hostedZone
-      Type: CNAME
-      TTL: 900
-      ResourceRecords:
-      - "ks3ohfndlrwqlp4m4iekcxck7detcp5g.dkim.amazonses.com."
-
-  cname3RecordSet:
-    Type: "AWS::Route53::RecordSet"
-    Properties:
-      Name: dgtsyrz2lkckvqkvmhep53bi7epziful._domainkey.jwilliams.uk.
-      HostedZoneId: !Ref hostedZone
-      Type: CNAME
-      TTL: 900
-      ResourceRecords:
-      - "dgtsyrz2lkckvqkvmhep53bi7epziful.dkim.amazonses.com."
-
   txt1RecordSet:
     Type: "AWS::Route53::RecordSet"
     Properties:
@@ -91,7 +40,6 @@ Resources:
       ResourceRecords:
       - "\"apple-domain=Kt0RN1fofPwkhu1h\""
       - "\"v=spf1 include:icloud.com ~all\""
-      - "\"v=spf1 include:amazonses.com ~all\""
 
   txt2RecordSet:
     Type: "AWS::Route53::RecordSet"
