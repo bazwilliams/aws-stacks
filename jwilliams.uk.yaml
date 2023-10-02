@@ -26,7 +26,9 @@ Resources:
       Type: MX
       TTL: 500
       ResourceRecords:
-      - "10 inbound-smtp.eu-west-1.amazonaws.com."
+      - "10 mx01.mail.icloud.com."
+      - "20 mx02.mail.icloud.com."
+      - "100 inbound-smtp.eu-west-1.amazonaws.com."
 
   caaRecordSet:
     Type: "AWS::Route53::RecordSet"
@@ -87,6 +89,8 @@ Resources:
       Type: TXT
       TTL: 900
       ResourceRecords:
+      - "\"apple-domain=Kt0RN1fofPwkhu1h\""
+      - "\"v=spf1 include:icloud.com ~all\""
       - "\"v=spf1 include:amazonses.com ~all\""
 
   txt2RecordSet:
@@ -98,3 +102,13 @@ Resources:
       TTL: 900
       ResourceRecords:
       - "\"v=DMARC1;p=quarantine;pct=100;fo=1\""
+
+  icloudDkimRecordSet:
+    Type: "AWS::Route53::RecordSet"
+    Properties:
+      Name: sig1._domainkey.jwilliams.uk.
+      HostedZoneId: !Ref hostedZone
+      Type: CNAME
+      TTL: 900
+      ResourceRecords:
+      - "sig1.dkim.jwilliams.uk.at.icloudmailadmin.com."
