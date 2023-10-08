@@ -17,7 +17,7 @@ Resources:
       TTL: 500
       ResourceRecords:
       - "10 mx01.mail.icloud.com."
-      - "20 mx02.mail.icloud.com."
+      - "10 mx02.mail.icloud.com."
 
   caaRecordSet:
     Type: "AWS::Route53::RecordSet"
@@ -40,16 +40,6 @@ Resources:
       ResourceRecords:
       - "\"apple-domain=Kt0RN1fofPwkhu1h\""
       - "\"v=spf1 include:icloud.com ~all\""
-
-  txt2RecordSet:
-    Type: "AWS::Route53::RecordSet"
-    Properties:
-      Name: _dmarc.jwilliams.uk.
-      HostedZoneId: !Ref hostedZone
-      Type: TXT
-      TTL: 900
-      ResourceRecords:
-      - "\"v=DMARC1;p=quarantine;pct=100;fo=1\""
 
   icloudDkimRecordSet:
     Type: "AWS::Route53::RecordSet"

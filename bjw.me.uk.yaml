@@ -16,7 +16,7 @@ Resources:
       TTL: 500
       ResourceRecords:
       - "10 mx01.mail.icloud.com."
-      - "20 mx02.mail.icloud.com."
+      - "10 mx02.mail.icloud.com."
 
   txt1RecordSet:
     Type: "AWS::Route53::RecordSet"
